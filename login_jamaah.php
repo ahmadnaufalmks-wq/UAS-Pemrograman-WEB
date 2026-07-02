@@ -1,6 +1,8 @@
 <?php
 
+session_set_cookie_params(0, "/");
 session_start();
+session_regenerate_id(true);
 include "koneksi.php";
 
 if (isset($_POST['login'])) {
@@ -27,7 +29,7 @@ if (isset($_POST['login'])) {
             setcookie(
                 "login_jamaah",
                 "true",
-                time() + 3600,
+                0,
                 "/"
             );
 

@@ -1,6 +1,16 @@
 <?php
+session_set_cookie_params(0, "/");
+session_start();
 include "cek_login.php";
 include "koneksi.php";
+
+if (
+    !isset($_SESSION['login']) ||
+    !isset($_SESSION['username'])
+) {
+    header("Location: login.php");
+    exit;
+}
 
 // =============================
 // CREATE DATA KEUANGAN

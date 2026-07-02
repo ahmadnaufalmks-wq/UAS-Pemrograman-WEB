@@ -1,12 +1,12 @@
 <?php
+session_set_cookie_params(0, "/");
 session_start();
 include "koneksi.php";
 
 // Wajib login sebagai jamaah untuk mengakses halaman ini
 if (
     !isset($_SESSION['login_jamaah']) ||
-    !isset($_SESSION['id_jamaah']) ||
-    !isset($_COOKIE['login_jamaah'])
+    !isset($_SESSION['id_jamaah'])
 ) {
     header("Location: login_jamaah.php?redirect=infaq");
     exit;

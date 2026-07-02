@@ -1,13 +1,13 @@
 <?php
+session_set_cookie_params(0, "/");
 session_start();
 include "cek_login.php";
 include "koneksi.php";
 
-// Jika session atau cookie tidak ada
+// Jika session tidak ada
 if (
     !isset($_SESSION['login']) ||
-    !isset($_SESSION['username']) ||
-    !isset($_COOKIE['login'])
+    !isset($_SESSION['username'])
 ) {
     header("Location: login.php");
     exit;
